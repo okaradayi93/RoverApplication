@@ -1,0 +1,35 @@
+{
+  "RoverDirectionMapDictionary": {
+    "L": {
+      "DirectionValue": 5,
+      "PosionValue": 0
+    },
+    "R": {
+      "DirectionValue": 3,
+      "PosionValue": 0
+    },
+    "M": {
+      "DirectionValue": 0,
+      "PosionValue": 1
+    }
+  },
+  "DirectionMapDictionary": {
+    "0": {
+      "HorizontalValue": 1,
+      "VerticalValue": 0
+    },
+    "1": {
+      "HorizontalValue": 0,
+      "VerticalValue": 1
+    },
+    "2": {
+      "HorizontalValue": -1,
+      "VerticalValue": 0
+    },
+    "3": {
+      "HorizontalValue": 0,
+      "VerticalValue": -1
+    }
+  }
+
+}
