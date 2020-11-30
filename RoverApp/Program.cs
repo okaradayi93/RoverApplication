@@ -53,10 +53,7 @@ namespace RoverApp
             {
                 Console.WriteLine("{0} {1} {2}", item.XCoordinate, item.YCoordinate, directionDictionary.FirstOrDefault(x => x.Value == item.CurrentDirection).Key);
             }
-
             Console.ReadLine();
-
-
         }
 
         private static ParameterConfig Initialize(Dictionary<char, DirectionValue> directionDictionary)
@@ -68,8 +65,6 @@ namespace RoverApp
             directionDictionary.Add('W', DirectionValue.West);
 
             //// Set Command Posion and Direction Value For Calculate Coordinate
-            //parameterConfig.DirectionMapDictionary = new Dictionary<DirectionValue, Direction>();
-            //parameterConfig.RoverDirectionMapDictionary = new Dictionary<char, RoverDirectionMap>();
             return LoadParameters();
         }
 
