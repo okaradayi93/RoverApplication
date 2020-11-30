@@ -15,9 +15,8 @@ namespace RoverApp
         {
             Dictionary<char, DirectionValue> directionDictionary = new Dictionary<char, DirectionValue>();
             ParameterConfig parameterConfig = new ParameterConfig();
-            //parameterConfig.DirectionMapDictionary = new Dictionary<DirectionValue, Direction>();
-            //parameterConfig.RoverDirectionMapDictionary = new Dictionary<char, RoverDirectionMap>();
-            Initialize(directionDictionary, parameterConfig);
+            
+            parameterConfig = Initialize(directionDictionary);
             
             Console.WriteLine("Enter Plateau Max Limit");
             string limitCoordinates = Console.ReadLine();
@@ -60,7 +59,7 @@ namespace RoverApp
 
         }
 
-        private static void Initialize(Dictionary<char, DirectionValue> directionDictionary, ParameterConfig parameterConfig)
+        private static ParameterConfig Initialize(Dictionary<char, DirectionValue> directionDictionary)
         {
             // Initialize Value For Direction Calculation
             directionDictionary.Add('N', DirectionValue.North);
@@ -68,15 +67,17 @@ namespace RoverApp
             directionDictionary.Add('E', DirectionValue.East);
             directionDictionary.Add('W', DirectionValue.West);
 
-            // Set Command Posion and Direction Value For Calculate Coordinate
-            parameterConfig.DirectionMapDictionary = new Dictionary<DirectionValue, Direction>();
-            parameterConfig.RoverDirectionMapDictionary = new Dictionary<char, RoverDirectionMap>();
-            parameterConfig = LoadParameters();
+            //// Set Command Posion and Direction Value For Calculate Coordinate
+            //parameterConfig.DirectionMapDictionary = new Dictionary<DirectionValue, Direction>();
+            //parameterConfig.RoverDirectionMapDictionary = new Dictionary<char, RoverDirectionMap>();
+            return LoadParameters();
         }
 
         private static ParameterConfig LoadParameters()
         {
-            ParameterConfig parameterConfig;
+            ParameterConfig parameterConfig = new ParameterConfig();
+            parameterConfig.DirectionMapDictionary = new Dictionary<DirectionValue, Direction>();
+            parameterConfig.RoverDirectionMapDictionary = new Dictionary<char, RoverDirectionMap>();
             using (StreamReader r = new StreamReader(AppDomain.CurrentDomain.BaseDirectory + "\\Parameters.json"))
             {
                 string json = r.ReadToEnd();
